@@ -12,7 +12,7 @@ import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/inter
  * @title A sample Raffle contract
  * @author web3pavlou
  * @notice This contract is for creating a sample Raffle,not intended for production purposes
- * @dev This implements chainlink VRFv2.5
+ * @dev This implements the chainlink VRFv2
  */
 contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     /* Errors */

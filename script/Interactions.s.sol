@@ -3,7 +3,8 @@
 pragma solidity ^0.8.19;
 
 import {Script, console} from "forge-std/Script.sol";
-import {HelperConfig, CodeConstants} from "script/HelperConfig.s.sol";
+import {HelperConfig} from "script/HelperConfig.s.sol";
+import {CodeConstants} from "script/HelperConfig.s.sol";
 import {VRFCoordinatorV2_5Mock} from "@chainlink/contracts/src/v0.8/vrf/mocks/VRFCoordinatorV2_5Mock.sol";
 import {LinkToken} from "test/Mocks/LinkToken.sol";
 import {DevOpsTools} from "foundry-devops/src/DevOpsTools.sol";
@@ -83,7 +84,7 @@ contract AddConsumer is Script {
 }
 
 contract FundSubscription is Script, CodeConstants {
-    uint96 public constant FUND_AMOUNT = 3 ether; //3 LINK
+    uint96 public constant FUND_AMOUNT = 3 ether;
 
     function fundSubscription(
         address vrfCoordinatorV2_5,
@@ -95,7 +96,7 @@ contract FundSubscription is Script, CodeConstants {
         console.log("Using vrfCoordinator:", vrfCoordinatorV2_5);
         console.log("On chain Id:", block.chainid);
 
-        if (block.chainid == 31337) {
+        if (block.chainid == LOCAL_CHAIN_ID) {
             vm.startBroadcast(account);
             VRFCoordinatorV2_5Mock(vrfCoordinatorV2_5).fundSubscription(
                 subId,
@@ -105,8 +106,6 @@ contract FundSubscription is Script, CodeConstants {
         } else {
             console.log(LinkToken(link).balanceOf(msg.sender));
             console.log(msg.sender);
-            // console.log(LinkToken(link).balanceOf(address(this)));
-            // console.log(address(this));
             vm.startBroadcast(account);
             LinkToken(link).transferAndCall(
                 vrfCoordinatorV2_5,
