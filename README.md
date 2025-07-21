@@ -1,7 +1,6 @@
 # Foundry Smart Contract Lottery
 
-![Build](https://img.shields.io/github/actions/workflow/status/web3pavlou/foundry-smart-contract-lottery-f23/ci.yml?branch=main)
-
+![Build](https://github.com/web3pavlou/foundry-smart-contract-lottery-f23/actions/workflows/ci.yml/badge.svg?branch=main)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
