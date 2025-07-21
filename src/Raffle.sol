@@ -19,11 +19,9 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     error Raffle__InvalidPurchaseSendMoreToEnterRaffle();
     error Raffle__TransferFailed();
     error Raffle__RaffleNotOpen();
+    // prettier-ignore
     error Raffle__upkeepNotNeeded(
-        uint256 currentBalance,
-        uint256 numPlayers,
-        uint256 RaffleState
-    );
+        uint256 currentBalance,uint256 numPlayers,uint256 RaffleState);
 
     /* Type Declarations */
     enum RaffleState {
